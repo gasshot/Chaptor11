@@ -5,7 +5,7 @@ namespace ConstantOnTypeParameters
     class StructArray<T> where T : struct
     { 
     public T[] Array { get; set; }
-        public StructArray(int size)
+        public StructArray(int size) // 생성자
         {
             Array = new T[size];
         }
@@ -52,6 +52,8 @@ namespace ConstantOnTypeParameters
 
             RefArray<StructArray<double>> b = new RefArray<StructArray<double>>(3);
             b.Array[0] = new StructArray<double>(5);
+            b.Array[0].Array[0] = 0.5;
+            b.Array[0].Array[1] = 0.55;
             b.Array[1] = new StructArray<double>(10);
             b.Array[2] = new StructArray<double>(1005);
 
